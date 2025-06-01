@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANOJKANTH K Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-bg: #f5f0e8;
+      --text-color: #333333;
+      --accent-color: #ff6b35;
+      --dark-accent: #e05a2a;
+      --white: #ffffff;
+      --black: #1a1a1a;
+      --card-bg: #ffffff;
+      --section-bg: #f9f7f3;
+      --border-color: #d4c9b8;
+      --orange-gradient: linear-gradient(135deg, #ff9d00, #ff6b35);
+      --success: #4CAF50;
+      --error: #f44336;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--primary-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+      border: 12px solid var(--border-color);
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--black) 0%, #2d2d2d 100%);
+      color: var(--white);
+      padding: 18px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--accent-color);
+      font-size: 2.4rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 5px;
+      flex-wrap: wrap;
+      padding: 0 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      padding: 10px 26px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 100px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      min-width: 100px;
+      text-align: center;
+      font-size: 0.95rem;
+      backdrop-filter: blur(2px);
+    }
+
+    nav a:hover {
+      background: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero {
+      text-align: center;
+      margin-top: 40px;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    .profile-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 25px;
+      border-radius: 50%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      border: 6px solid var(--white);
+    }
+
+    .profile-container img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #ff9d00, #ff6b35);
+    }
+
+    .profile-container:hover img {
+      transform: scale(1.05);
+    }
+
+    .hero h2 {
+      margin-top: 15px;
+      font-size: 2.4rem;
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .hero h2 .highlight {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 15px auto 25px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .buttons .btn {
+      padding: 14px 32px;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-btn {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .contact-btn {
+      background: linear-gradient(135deg, var(--accent-color), var(--dark-accent));
+      color: var(--white);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .content-box {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-color);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      position: relative;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .internship-highlight {
+      background: linear-gradient(120deg, rgba(255,107,53,0.15) 0%, rgba(255,107,53,0.05) 100%);
+      padding: 25px;
+      border-radius: 15px;
+      border-left: 4px solid var(--accent-color);
+      margin: 30px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .internship-highlight::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff6b35" opacity="0.1"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>');
+      background-size: contain;
+      z-index: 1;
+    }
+    
+    .internship-highlight h3 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .skills-grid, .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skill-box {
+      background: var(--white);
+      color: var(--black);
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-box img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .skill-box p {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 35px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .project-box {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eee;
+      position: relative;
+    }
+
+    .project-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-box:hover .project-img img {
+      transform: scale(1.05);
+    }
+
+    .github-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .github-link:hover {
+      background: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .project-info p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    
+    /* Project technologies styles */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .tech-tag {
+      background: rgba(255, 107, 53, 0.1);
+      color: var(--accent-color);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+    }
+
+    .certificates-grid {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .certificate-box {
+      background: var(--white);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eee;
+      position: relative;
+    }
+
+    .certificate-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .certificate-img {
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certificate-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .certificate-box:hover .certificate-img img {
+      transform: scale(1.05);
+    }
+
+    .certificate-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .certificate-link:hover {
+      background: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    .certificate-info {
+      padding: 25px;
+    }
+
+    .certificate-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--black);
+    }
+
+    .certificate-info p {
+      color: #555;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      background: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+      background: #fff;
+    }
+
+    form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      grid-column: span 2;
+      justify-self: center;
+      background: linear-gradient(135deg, var(--accent-color), var(--dark-accent));
+      color: var(--white);
+      border: none;
+      padding: 16px 45px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+    }
+    
+    /* Form validation styles */
+    .error {
+      display: block;
+      color: var(--error);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+    }
+    
+    .form-group.has-error input,
+    .form-group.has-error textarea {
+      border-color: var(--error);
+    }
+    
+    .form-group.has-error input:focus,
+    .form-group.has-error textarea:focus {
+      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+    }
+    
+    .success-message {
+      background-color: rgba(76, 175, 80, 0.1);
+      border: 1px solid var(--success);
+      color: var(--success);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+      display: none;
+    }
+    
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--black);
+      color: var(--white);
+      margin-top: 30px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      text-align: left;
+      gap: 30px;
+    }
+    
+    .footer-section {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .footer-section h3 {
+      color: var(--accent-color);
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .contact-item i {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      margin-top: 3px;
+    }
+    
+    .contact-item p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 25px 0;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: var(--accent-color);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 1rem;
+      opacity: 0.8;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animation for the profile picture */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .profile-container {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    /* Animation for section titles */
+    .section-title h2::after {
+      animation: expand 2s ease-in-out infinite;
+    }
+    
+    @keyframes expand {
+      0% { width: 80px; }
+      50% { width: 120px; }
+      100% { width: 80px; }
+    }
+    
+    /* Loading spinner */
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+        min-width: 85px;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .profile-container img {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .content-box {
+        padding: 30px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.9rem;
+      }
+      
+      form {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full-width {
+        grid-column: span 1;
+      }
+      
+      .submit-btn {
+        grid-column: span 1;
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      body {
+        border-width: 8px;
+      }
+      
+      header {
+        padding: 15px 0;
+      }
+      
+      nav {
+        gap: 8px;
+      }
+      
+      nav a {
+        padding: 7px 16px;
+        font-size: 0.85rem;
+        min-width: 75px;
+      }
+      
+      .hero {
+        margin-top: 30px;
+      }
+      
+      .buttons .btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+      }
+      
+      .content-box {
+        padding: 25px 20px;
+      }
+      
+      .section-title h2 {
+        font-size: 1.7rem;
+      }
+      
+      .project-img, .certificate-img {
+        height: 200px;
+      }
+      
+      .footer-section {
+        min-width: 100%;
+        text-align: center;
+      }
+      
+      .contact-item {
+        justify-content: center;
+      }
+      
+      .profile-container img {
+        width: 180px;
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav a {
+        width: 180px;
+      }
+      
+      .projects-grid, .certificates-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+  
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificate">Certificates</a>
+      
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="profile-container">
+      <div style="width:240px;height:240px;border-radius:50%;background:linear-gradient(45deg, #ff9d00, #ff6b35);display:flex;align-items:center;justify-content:center;font-size:5rem;color:white;"><img src="WhatsApp Image 2025-05-31 at 17.06.46.jpeg"></div>
+    </div>
+    <h2><span class="highlight">I'm</span> Manojkanth - Software Engineer</h2>
+    <p>Building innovative solutions with modern technologies and clean code</p>
+    <div class="buttons">
+      <a href="./K.Manojkanth_cv.pdf"><button class="btn download-btn"><i class="fas fa-download"></i> Download Resume</button></a>
+      <a href="#contact" class="btn contact-btn">
+        <i class="fas fa-paper-plane"></i> Contact Me
+      </a>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>About Me</h2>
+    </div>
+    <div class="content-box">
+      <div class="about-content">
+        <p>Hello! I'm Manojkanth, a passionate and ambitious Software Engineering student with a drive to create impactful digital solutions. My journey in technology began with curiosity and has evolved into a commitment to building efficient, user-friendly applications.</p>
+        
+        <p>Through my academic projects and personal initiatives, I've developed expertise in full-stack development, with hands-on experience in Python, JavaScript, React, and Node.js. I thrive on solving complex problems and transforming ideas into functional, elegant solutions.</p>
+        
+        <div class="internship-highlight">
+          <h3>Seeking Software Engineering Internship</h3>
+          <p>I'm actively seeking internship opportunities to apply my skills in a professional environment. I'm eager to contribute to innovative projects, learn from experienced engineers, and grow as a professional developer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">
+      <h2>Skills</h2>
+    </div>
+    <div class="content-box">
+      <div class="skills-grid">
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+          <p>Python</p>
+        </div>
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+          <p>JavaScript</p>
+        </div>
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React">
+          <p>React</p>
+        </div>
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js">
+          <p>Node.js</p>
+        </div>
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="Java">
+          <p>Java</p>
+        </div>
+        <div class="skill-box">
+          <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" alt="C++">
+          <p>C++</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Projects</h2>
+    </div>
+    <div class="content-box">
+      <div class="projects-grid">
+        <div class="project-box">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1554119921-6c285c374b9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 1">
+            <a href="https://github.com" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="project-info">
+            <h3>Smart Restaurant Management System</h3>
+            <p>An AI-powered solution for restaurant inventory, ordering, and customer management with real-time analytics.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-box">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 2">
+            <a href="https://github.com" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="project-info">
+            <h3>Online E-Commerce Platform</h3>
+            <p>Full-featured e-commerce solution with payment integration, inventory management, and customer analytics.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">Stripe API</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-box">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 3">
+            <a href="https://github.com" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="project-info">
+            <h3>Task Management Application</h3>
+            <p>Collaborative task management tool with real-time updates, team features, and progress tracking.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Firebase</span>
+              <span class="tech-tag">Material UI</span>
+              <span class="tech-tag">Redux</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-box">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Project 4">
+            <a href="https://github.com" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="project-info">
+            <h3>Fitness Tracking App</h3>
+            <p>Mobile application for tracking workouts, nutrition, and health metrics with personalized recommendations.</p>
+            <div class="tech-stack">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">GraphQL</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificate">
+    <div class="section-title">
+      <h2>Certificates</h2>
+    </div>
+    <div class="content-box">
+      <div class="certificates-grid">
+        <div class="certificate-box">
+          <div class="certificate-img">
+            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1176&q=80" alt="Certificate 1">
+            <a href="https://example.com" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="certificate-info">
+            <h3>Full Stack Development</h3>
+            <p>Coursera - University of Michigan</p>
+          </div>
+        </div>
+        <div class="certificate-box">
+          <div class="certificate-img">
+            <img src="https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Certificate 2">
+            <a href="https://example.com" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="certificate-info">
+            <h3>Python for Everybody</h3>
+            <p>edX - University of Michigan</p>
+          </div>
+        </div>
+        <div class="certificate-box">
+          <div class="certificate-img">
+            <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Certificate 3">
+            <a href="https://example.com" class="certificate-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="certificate-info">
+            <h3>Cloud Computing Fundamentals</h3>
+            <p>AWS Certified Solutions Architect</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact Me</h2>
+    </div>
+    <div class="content-box">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+          <span class="error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          <span class="error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+1 (123) 456-7890">
+          <span class="error" id="phoneError"></span>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+          <span class="error" id="subjectError"></span>
+        </div>
+        <div class="form-group full-width">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" placeholder="Hello, I'd like to discuss a project..." required></textarea>
+          <span class="error" id="messageError"></span>
+        </div>
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Information</h3>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>No.173 Main Street<br>Colombo</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <p>+94778405906<br>+94724440303</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Connect With Me</h3>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/mk0403"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/kalaichelvanmanojkanth"><i class="fab fa-github"></i></a>
+          <a href="https://wa.me/94778405906" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/manoj.mk04/profilecard/?igsh=Y2hkMWh1NGx4a3lo"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2025 MANOJKANTH K. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Animation for the buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Contact form validation and submission
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    
+    // Validation functions
+    function validateName() {
+      const name = document.getElementById('name').value.trim();
+      const nameError = document.getElementById('nameError');
+      const formGroup = document.getElementById('name').parentElement;
+      
+      if (name.length < 2) {
+        nameError.textContent = 'Name must be at least 2 characters';
+        formGroup.classList.add('has-error');
+        return false;
+      } else {
+        nameError.textContent = '';
+        formGroup.classList.remove('has-error');
+        return true;
+      }
+    }
+    
+    function validateEmail() {
+      const email = document.getElementById('email').value.trim();
+      const emailError = document.getElementById('emailError');
+      const formGroup = document.getElementById('email').parentElement;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      
+      if (!emailRegex.test(email)) {
+        emailError.textContent = 'Please enter a valid email address';
+        formGroup.classList.add('has-error');
+        return false;
+      } else {
+        emailError.textContent = '';
+        formGroup.classList.remove('has-error');
+        return true;
+      }
+    }
+    
+    function validatePhone() {
+      const phone = document.getElementById('phone').value.trim();
+      const phoneError = document.getElementById('phoneError');
+      const formGroup = document.getElementById('phone').parentElement;
+      
+      // Phone is optional, but if provided, validate
+      if (phone && !/^[\d\s()+-]+$/.test(phone)) {
+        phoneError.textContent = 'Please enter a valid phone number';
+        formGroup.classList.add('has-error');
+        return false;
+      } else {
+        phoneError.textContent = '';
+        formGroup.classList.remove('has-error');
+        return true;
+      }
+    }
+    
+    function validateSubject() {
+      const subject = document.getElementById('subject').value.trim();
+      const subjectError = document.getElementById('subjectError');
+      const formGroup = document.getElementById('subject').parentElement;
+      
+      if (subject.length < 3) {
+        subjectError.textContent = 'Subject must be at least 3 characters';
+        formGroup.classList.add('has-error');
+        return false;
+      } else {
+        subjectError.textContent = '';
+        formGroup.classList.remove('has-error');
+        return true;
+      }
+    }
+    
+    function validateMessage() {
+      const message = document.getElementById('message').value.trim();
+      const messageError = document.getElementById('messageError');
+      const formGroup = document.getElementById('message').parentElement;
+      
+      if (message.length < 10) {
+        messageError.textContent = 'Message must be at least 10 characters';
+        formGroup.classList.add('has-error');
+        return false;
+      } else {
+        messageError.textContent = '';
+        formGroup.classList.remove('has-error');
+        return true;
+      }
+    }
+    
+    // Add event listeners for real-time validation
+    document.getElementById('name').addEventListener('blur', validateName);
+    document.getElementById('email').addEventListener('blur', validateEmail);
+    document.getElementById('phone').addEventListener('blur', validatePhone);
+    document.getElementById('subject').addEventListener('blur', validateSubject);
+    document.getElementById('message').addEventListener('blur', validateMessage);
+    
+    // Form submission handling
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Validate all fields
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isPhoneValid = validatePhone();
+      const isSubjectValid = validateSubject();
+      const isMessageValid = validateMessage();
+      
+      if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+        // Show loading state
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="loading"></span> Sending...';
+        submitBtn.disabled = true;
+        
+        // Prepare form data
+        const formData = {
+          name: document.getElementById('name').value.trim(),
+          email: document.getElementById('email').value.trim(),
+          phone: document.getElementById('phone').value.trim() || 'Not provided',
+          subject: document.getElementById('subject').value.trim(),
+          message: document.getElementById('message').value.trim(),
+          toEmail: 'kalaichelvanmanojkanth07@gmail.com' // Your email address
+        };
+        
+        try {
+          // Send form data to serverless function
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              ...formData,
+              access_key: 'd186c152-c62b-44a6-ad9f-c664e327a424' // Replace with your actual access key
+            })
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Show success message
+            successMessage.style.display = 'block';
+            contactForm.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMessage.style.display = 'none';
+            }, 5000);
+          } else {
+            alert('There was an error sending your message. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('There was a network error. Please try again.');
+        } finally {
+          // Reset button state
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      }
+    });
+  </script>
+</body>
+</html> 
