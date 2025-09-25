@@ -1824,6 +1824,18 @@
   </footer>
 
   <script>
+    // Dynamic counters for skills and projects
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length >= 2) {
+      // Skills count (first stat-number)
+      const skillsCount = document.querySelectorAll('.skill-box').length;
+      statNumbers[0].setAttribute('data-target', skillsCount);
+      
+      // Projects count (second stat-number)
+      const projectsCount = document.querySelectorAll('.project-box').length;
+      statNumbers[1].setAttribute('data-target', projectsCount);
+    }
+
     // Mobile Navigation Toggle
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobile-nav');
