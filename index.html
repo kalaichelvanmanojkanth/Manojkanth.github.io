@@ -68,6 +68,12 @@
       height: 21px;
       cursor: pointer;
       z-index: 110;
+      transition: opacity 0.3s ease;
+    }
+
+    .hamburger.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
     .hamburger span {
@@ -151,10 +157,23 @@
     .close-btn {
       position: absolute;
       top: 20px;
-      right: 20px;
+      left: 20px;
       color: var(--white);
       font-size: 1.8rem;
       cursor: pointer;
+      background: var(--accent-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: var(--dark-accent);
+      transform: scale(1.1);
     }
 
     .overlay {
@@ -342,7 +361,85 @@
       font-size: 1.4rem;
     }
 
-    .skills-grid, .certificates-grid {
+    /* Stats Section */
+    .stats-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      max-width: 800px;
+      margin: 50px auto;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 30px;
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      font-family: 'Poppins', sans-serif;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    /* Education Section */
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .education-logo {
+      text-align: center;
+    }
+
+    .education-logo img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .education-details h3 {
+      font-size: 1.5rem;
+      color: var(--black);
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .education-details p {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .skills-category {
+      margin-bottom: 50px;
+    }
+
+    .skills-category h3 {
+      font-size: 1.6rem;
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 30px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 28px;
@@ -379,6 +476,19 @@
     .skill-box p {
       font-size: 1.1rem;
       font-weight: 600;
+    }
+
+    /* AI/ML Projects Section */
+    .aiml-projects {
+      background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,157,0,0.05) 100%);
+      padding: 40px;
+      border-radius: 18px;
+      margin-bottom: 40px;
+      border: 2px solid var(--accent-color);
+    }
+
+    .aiml-projects .section-title h2 {
+      color: var(--accent-color);
     }
 
     .projects-grid {
@@ -926,11 +1036,21 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    /* Counter Animation */
+    .counting {
+      transition: all 2s ease-out;
+    }
     
     /* Responsive Design */
     @media (max-width: 992px) {
       .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+      
+      .education-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
       
       .certificate-img {
@@ -1003,6 +1123,11 @@
         width: 70px;
         height: 70px;
         margin-bottom: 10px;
+      }
+
+      .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
       }
     }
 
@@ -1080,10 +1205,18 @@
         height: 50px;
         font-size: 1.6rem;
       }
+
+      .stats-section {
+        grid-template-columns: 1fr;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
     }
 
     @media (max-width: 400px) {
-      .projects-grid, .certificates-grid {
+      .projects-grid, .skills-grid {
         grid-template-columns: 1fr;
       }
       
@@ -1133,7 +1266,6 @@
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#certificate">Certificates</a>
-     
     </nav>
     
     <div class="mobile-nav" id="mobile-nav">
@@ -1142,7 +1274,6 @@
       <a href="#skills" class="mobile-link">Skills</a>
       <a href="#projects" class="mobile-link">Projects</a>
       <a href="#certificate" class="mobile-link">Certificates</a>
-      
     </div>
     
     <div class="overlay" id="overlay"></div>
@@ -1154,7 +1285,7 @@
         <img src="WhatsApp Image 2025-05-31 at 17.06.46.jpeg" alt="Manojkanth K">
       </div>
     </div>
-    <h2><span class="highlight">I'm</span> Manojkanth K - Software Engineer</h2>
+    <h2><span class="highlight">I'm</span> Manojkanth K - AI/ML Software Engineer</h2>
     <p>Building innovative solutions with modern technologies and clean code</p>
     <div class="buttons">
       <a href="./K.Manojkanth.pdf" class="btn download-btn" download="K.Manojkath.pdf"><i class="fas fa-download"></i> Download Resume</a>
@@ -1173,8 +1304,38 @@
         <p>Through my academic projects and personal initiatives, I've developed expertise in full-stack development, with hands-on experience in Python, JavaScript, React, and Node.js. I thrive on solving complex problems and transforming ideas into functional, elegant solutions.</p>
         
         <div class="internship-highlight">
-          <h3>Seeking Software Engineering Internship</h3>
+          <h3>Seeking AI/ML or Software Engineering Internship</h3>
           <p>I'm actively seeking internship opportunities to apply my skills in a professional environment. I'm eager to contribute to innovative projects, learn from experienced engineers, and grow as a professional developer.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+      <div class="stat-box">
+        <span class="stat-number" data-target="21">0</span>
+        <div class="stat-label">Total Skills</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number" data-target="5">0</span>
+        <div class="stat-label">Total Projects</div>
+      </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="content-box">
+      <div class="section-title">
+        <h2>Education</h2>
+      </div>
+      <div class="education-grid">
+        <div class="education-logo">
+          <img src="uni-logo.png" alt="SLIIT Logo">
+        </div>
+        <div class="education-details">
+          <h3>Sri Lanka Institute of Information Technology (SLIIT)</h3>
+          <p><strong>Degree:</strong> BSc (Hons) Information Technology Specialising in Information Technology</p>
+          <p><strong>Enroll Date:</strong> June 2022</p>
+          <p><strong>Expected Graduation:</strong> November 2026</p>
         </div>
       </div>
     </div>
@@ -1185,50 +1346,106 @@
       <h2>Skills</h2>
     </div>
     <div class="content-box">
-      <div class="skills-grid">
-        <div class="skill-box">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
-          <p>Python</p>
+      <div class="skills-category">
+        <h3>AI/ML Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+            <p>Python</p>
+          </div>
+          <div class="skill-box">
+            <img src="pandas.webp" alt="Pandas">
+            <p>Pandas</p>
+          </div>
+          <div class="skill-box">
+            <img src="num.svg" alt="NumPy">
+            <p>NumPy</p>
+          </div>
+          <div class="skill-box">
+            <img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-learn">
+            <p>Scikit-learn</p>
+          </div>
+          <div class="skill-box">
+            <img src="tensor.png" alt="TensorFlow">
+            <p>TensorFlow</p>
+          </div>
         </div>
-        <div class="skill-box">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
-          <p>JavaScript</p>
+      </div>
+
+      <div class="skills-category">
+        <h3>Frontend Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+            <p>JavaScript</p>
+          </div>
+          <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React">
+            <p>React</p>
+          </div>
+          <div class="skill-box">
+            <img src="Other-html-5-icon.png" alt="Html">
+            <p>HTML</p>
+          </div>
+          <div class="skill-box">
+            <img src="css3.png" alt="css">
+            <p>CSS</p>
+          </div>
+          <div class="skill-box">
+            <img src="Kotlin_Icon.svg.png" alt="Kotlin">
+            <p>Kotlin</p>
+          </div>
+          <div class="skill-box">
+            <img src="boot.png" alt="Bootstrap">
+            <p>Bootstrap</p>
+          </div>
+          <div class="skill-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript">
+            <p>TypeScript</p>
+          </div>
         </div>
-        <div class="skill-box">
-          <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React">
-          <p>React</p>
-        </div>
-        <div class="skill-box">
-          <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js">
-          <p>Node.js</p>
-        </div>
-        <div class="skill-box">
-          <img src="Kotlin_Icon.svg.png" alt="Kotlin">
-          <p>Kotlin</p>
-        </div>
-        <div class="skill-box">
-          <img src="free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175140.webp" alt="mongodb">
-          <p>MongoDB</p>
-        </div>
-        <div class="skill-box">
-          <img src="express-js.png" alt="ExpressJs">
-          <p>ExpressJs</p>
-        </div>
-        <div class="skill-box">
-          <img src="Other-html-5-icon.png" alt="Html">
-          <p>HTML</p>
-        </div>
-        <div class="skill-box">
-          <img src="css3.png" alt="css">
-          <p>CSS</p>
-        </div>
-        <div class="skill-box">
-          <img src="microsoft_sql_server-logo_brandlogos.net_wykhq-512x512.png" alt="sql">
-          <p>SQL</p>
-        </div>
-        <div class="skill-box">
-          <img src="php.png" alt="sql">
-          <p>php</p>
+      </div>
+
+      <div class="skills-category">
+        <h3>Backend Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <img src="java.svg" alt="Java">
+            <p>Java</p>
+          </div>
+          <div class="skill-box">
+            <img src="spring.webp" alt="Spring Boot">
+            <p>Spring Boot</p>
+          </div>
+          <div class="skill-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node.js">
+            <p>Node.js</p>
+          </div>
+          
+          <div class="skill-box">
+            <img src="free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175140.webp" alt="mongodb">
+            <p>MongoDB</p>
+          </div>
+          <div class="skill-box">
+            <img src="express-js.png" alt="ExpressJs">
+            <p>ExpressJs</p>
+          </div>
+          <div class="skill-box">
+            <img src="microsoft_sql_server-logo_brandlogos.net_wykhq-512x512.png" alt="sql">
+            <p>SQL</p>
+          </div>
+          <div class="skill-box">
+            <img src="php.png" alt="php">
+            <p>PHP</p>
+          </div>
+          <div class="skill-box">
+            <img src="net.png" alt=".NET">
+            <p>.NET</p>
+          </div>
+          <div class="skill-box">
+            <img src="c3.png" alt="C#">
+            <p>C#</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1239,10 +1456,74 @@
       <h2>Projects</h2>
     </div>
     <div class="content-box">
+      <!-- AI/ML Projects -->
+      <div class="aiml-projects">
+        <div class="section-title">
+          <h2>AI/ML Projects</h2>
+        </div>
+        <div class="projects-grid">
+          <div class="project-box">
+            <div class="project-img">
+              <img src="kidney.jpg" alt="AI Image Classifier" loading="lazy">
+              <a href="https://github.com/kalaichelvanmanojkanth/kidneyDiseasePrediction" class="github-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="project-info">
+              <h3>Kidney Disease Prediction</h3>
+              <p>This project is a machine learning classification model for predicting Chronic Kidney Disease (CKD) based on patient features like age, blood pressure, albumin levels, and hemoglobin from a CSV dataset of 400 records. It preprocesses data (handling missing values, encoding categoricals), splits into train/test sets, and evaluates models for accuracy, precision, recall, and F1-score—achieving up to 98% accuracy with Random Forest</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">NumPy</span>
+                <span class="tech-tag">Scikit-learn</span>
+
+              </div>
+            </div>
+          </div>
+          <div class="project-box">
+            <div class="project-img">
+              <img src="Netflix.jpg" alt="Sentiment Analysis Tool" loading="lazy">
+              <a href="https://github.com/kalaichelvanmanojkanth/Netflix-project-pandas" class="github-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="project-info">
+              <h3>Netflix Dataset Analysis</h3>
+              <p>A Python-based exploratory data analysis (EDA) project on the Netflix movies and TV shows dataset. It uses Pandas and Matplotlib to uncover insights like content trends by genre, release years, ratings distribution, and top-performing countries, helping visualize streaming patterns and user preferences.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Matplotlib</span>
+                <span class="tech-tag">Pandas</span>
+              </div>
+            </div>
+          </div>
+             <div class="project-box">
+            <div class="project-img">
+              <img src="rock.jpeg" alt="Sentiment Analysis Tool" loading="lazy">
+              <a href="https://github.com/kalaichelvanmanojkanth/Rock-Paper-Scissors" class="github-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="project-info">
+              <h3>Rock Paper Scissors Game</h3>
+              <p>A fun, interactive console game implementing the classic Rock-Paper-Scissors rules, where players choose hand gestures to compete against the computer's random selections, with win/loss tracking and replay options.</p>
+              <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Projects -->
+      <div class="section-title">
+        <h2>Other Projects</h2>
+      </div>
       <div class="projects-grid">
         <div class="project-box">
           <div class="project-img">
-            <img src="smart.png" alt="Project 1" loading="lazy">
+            <img src="smart.png" alt="Smart Restaurant Management" loading="lazy">
             <a href="https://github.com/kalaichelvanmanojkanth/Smart-Restaurant-Management--MERN-STACK-" class="github-link" target="_blank">
               <i class="fab fa-github"></i>
             </a>
@@ -1260,7 +1541,29 @@
         </div>
         <div class="project-box">
           <div class="project-img">
-            <img src="20250614_142929.jpg" alt="Project 2" loading="lazy">
+            <img src="php project.png" alt="Smart Restaurant Management" loading="lazy">
+            <a href="https://github.com/kalaichelvanmanojkanth/product_catalogue" class="github-link" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="project-info">
+            <h3>Product Management </h3>
+            <p>Users can easily add new products with essential details like name and price, while the system prevents duplicates to maintain data integrity. Built-in verification ensures that every added product displays its name and price clearly for quick review. Once all products are added, the dashboard provides a comprehensive overview</p>
+            <div class="tech-stack">
+              <span class="tech-tag">PHP (Laravel framework)</span>
+              <span class="tech-tag">JavaScript (with Axios for API calls)</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">HTML</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">JavaScript</span>
+               <span class="tech-tag">Guzzle (HTTP client for API integrations)</span>
+
+            </div>
+          </div>
+        </div>
+       <div class="project-box">
+          <div class="project-img">
+            <img src="20250614_142929.jpg" alt="Foodify" loading="lazy">
             <a href="https://github.com/kalaichelvanmanojkanth/Food-order-App-Foodify-" class="github-link" target="_blank">
               <i class="fab fa-github"></i>
             </a>
@@ -1276,7 +1579,7 @@
         </div>
         <div class="project-box">
           <div class="project-img">
-            <img src="finance.png" alt="Project 4" loading="lazy">
+            <img src="finance.png" alt="Personal Finance Tracker" loading="lazy">
             <a href="https://github.com/kalaichelvanmanojkanth/Personal-Finance-Tracker-App" class="github-link" target="_blank">
               <i class="fab fa-github"></i>
             </a>
@@ -1293,7 +1596,7 @@
         </div>
         <div class="project-box">
           <div class="project-img">
-            <img src="portfolio.jpeg" alt="Project 4" loading="lazy">
+            <img src="portfolio.jpeg" alt="Personal Portfolio" loading="lazy">
             <a href="https://github.com/kalaichelvanmanojkanth/Manojkanth.github.io" class="github-link" target="_blank">
               <i class="fab fa-github"></i>
             </a>
@@ -1531,18 +1834,21 @@
       mobileNav.classList.add('active');
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      hamburger.classList.add('hidden'); // Hide hamburger when nav opens
     });
 
     closeBtn.addEventListener('click', () => {
       mobileNav.classList.remove('active');
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      hamburger.classList.remove('hidden'); // Show hamburger when nav closes
     });
 
     overlay.addEventListener('click', () => {
       mobileNav.classList.remove('active');
       overlay.classList.remove('active');
       document.body.style.overflow = '';
+      hamburger.classList.remove('hidden'); // Show hamburger when nav closes
     });
 
     // Mobile nav links functionality
@@ -1555,6 +1861,7 @@
         mobileNav.classList.remove('active');
         overlay.classList.remove('active');
         document.body.style.overflow = '';
+        hamburger.classList.remove('hidden'); // Show hamburger
         
         // Scroll to section
         const targetId = this.getAttribute('href');
@@ -1585,6 +1892,36 @@
         this.style.transform = 'translateY(0)';
       });
     });
+
+    // Counter Animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const increment = target / 100;
+        let current = 0;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          counter.textContent = Math.floor(current);
+        }, 20);
+      });
+    }
+
+    // Trigger counters on scroll into view
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    statsObserver.observe(document.querySelector('.stats-section'));
 
     // Certificate Carousel
     const carousel = document.getElementById('carousel');
